@@ -77,7 +77,7 @@ def main(argv):
 	parser = argparse.ArgumentParser('rdpsign')
 	parser.add_argument("infile", metavar='infile.rdp', help="rdp file to be signed")
 	parser.add_argument("outfile", metavar='outfile.rdp', help="signed rdp output file")
-	parser.add_argument("certfile", metavar='signer.pem', help="signing certificate")
+	parser.add_argument("certfile", metavar='signer.crt', help="signing certificate")
 	parser.add_argument("-k", dest='keyfile', metavar='signer.key', help="specify private key file")
 	parser.add_argument("-e", dest='encoding', metavar='encoding', default="utf-16", help="encoding of input file (default is utf-16)")
 
@@ -129,7 +129,7 @@ def main(argv):
 
 	msgblob = msgtext.encode('UTF-16LE')
 
-	params  = [ 'openssl', 'cms', '-sign', '-binary' ]
+	params  = [ 'openssl', 'smime', '-sign', '-binary' ]
 	params += [ '-signer', args.certfile ]
 	params += [ '-outform', 'DER' ]
 	params += [ '-noattr', '-nosmimecap' ]
@@ -163,7 +163,7 @@ def main(argv):
 	# with open('debug.sig', 'wb') as f:
 	#	f.write(opensslout)
 	# run the following command to verify the signature
-	# openssl cms -verify -inform DER -in debug.sig -content debug.msg -CAfile rdpsign.pem
+	# openssl cms -verify -inform DER -in debug.sig -content debug.msg -CAfile signer.pem
 
 
 	# The Microsoft rdpsign.exe adds a 12 byte header to the signature 
