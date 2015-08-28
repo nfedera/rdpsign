@@ -74,11 +74,9 @@ def main(argv):
 		[ 'eventloguploadaddress:s:', 'EventLogUploadAddress' ],
 	]
 
-	encoding = 'utf-16'
-
 	parser = argparse.ArgumentParser('rdpsign')
-	parser.add_argument("infile", metavar='infile.pem', help="rdp file to be signed")
-	parser.add_argument("outfile", metavar='outfile.pem', help="signed rdp output file")
+	parser.add_argument("infile", metavar='infile.rdp', help="rdp file to be signed")
+	parser.add_argument("outfile", metavar='outfile.rdp', help="signed rdp output file")
 	parser.add_argument("certfile", metavar='signer.pem', help="signing certificate")
 	parser.add_argument("-k", dest='keyfile', metavar='signer.key', help="specify private key file")
 	parser.add_argument("-e", dest='encoding', metavar='encoding', default="utf-16", help="encoding of input file (default is utf-16)")
