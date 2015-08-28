@@ -48,7 +48,6 @@ First we create a simple openssl.conf file:
 Now create a selfsigned test certificate and private key:
 
     openssl req -x509 -newkey rsa:2048 -nodes -out signer.crt -keyout signer.key -config openssl.conf
-    openssl pkcs12 -export -passout pass: -in signer.crt -inkey signer.key -out signer.pfx
 
 Sign your rdp file:
 
