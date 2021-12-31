@@ -29,7 +29,7 @@ This python script is the result of reverse engineering the rdpsign.exe internal
 
     rdpsign --help
 
-    The refactor also exposes the `signRDP` function taking the rdp file to sign as a string, the path to the signing certfile, the path to the key file if needed and wether the lib should split the signature into 64 character chunks.
+The refactor also exposes the `signRDP` function taking the rdp file to sign as a string, the path to the signing certfile, the path to the key file if needed and wether the lib should split the signature into 64 character chunks.
 
 
 ## Demo (Tested on Linux, Mac OSX & Windows 10)
