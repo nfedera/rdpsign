@@ -194,7 +194,7 @@ def signRDP(rdpFile, certfile, keyfile=None, splitSig=False):
 if __name__ == "__main__":
     import sys, argparse
     #Argument Parser
-    parser = argparse.ArgumentParser('rdpsign2')
+    parser = argparse.ArgumentParser('rdpsign')
     parser.add_argument("infile", metavar='infile.rdp', help="RDP file to be signed")
     parser.add_argument("outfile", metavar='outfile.rdp', help="Signed rdp output file")
     parser.add_argument("certfile", metavar='signer.crt', help="Signing certificate")
