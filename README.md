@@ -1,5 +1,5 @@
 # rdpsign
-Remote Desktop Protocol (.rdp) file signing
+Remote Desktop Protocol (.rdp) File Signing Library & Command Line Application
 
 https://github.com/nfedera/rdpsign
 
@@ -8,7 +8,7 @@ In Window Server 2008 Microsoft added the rdpsign.exe utility.
 This command enables you to digitally sign a Remote Desktop Protocol(.rdp) file.
 See https://technet.microsoft.com/en-us/library/cc753982.aspx for a detailed description.
 
-To the best of my knowledge the specifications of the rdp signature creation are proprietary and have not been published until today (August 2015).
+To the best of my knowledge the specifications of the rdp signature creation are proprietary and have not been published until today (December 2021).
 
 This python script is the result of reverse engineering the rdpsign.exe internals.
 
@@ -21,7 +21,7 @@ This python script is the result of reverse engineering the rdpsign.exe internal
 
 ## Dependencies
 
-- python 2.7 or later
+- python 3.7 or later
 - openssl commandline utility
 
 
@@ -29,8 +29,10 @@ This python script is the result of reverse engineering the rdpsign.exe internal
 
     rdpsign --help
 
+    The refactor also exposes the `signRDP` function taking the rdp file to sign as a string, the path to the signing certfile, the path to the key file if needed and wether the lib should split the signature into 64 character chunks.
 
-## Demo (tested on Linux and Mac OSX)
+
+## Demo (Tested on Linux, Mac OSX & Windows 10)
 
 First we create a simple openssl.conf file:
 
